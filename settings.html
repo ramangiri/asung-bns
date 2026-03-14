@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="app-shell">
+        <div id="sidebarMount"></div>
+        <main class="main">
+            <div class="topbar">
+                <div style="display:flex;gap:12px;align-items:center"><button id="mobileToggle"
+                        class="mobile-toggle">☰</button>
+                    <h1 id="pageTitle"></h1>
+                </div>
+            </div>
+            <div class="card">
+                <form id="settingsForm">
+                    <div class="form-grid three">
+                        <div class="field"><label>Company Name</label><input id="companyName" name="companyName"></div>
+                        <div class="field"><label>Address Line 1</label><input id="address1" name="address1"></div>
+                        <div class="field"><label>Address Line 2</label><input id="address2" name="address2"></div>
+                        <div class="field"><label>CIN</label><input id="cin" name="cin"></div>
+                        <div class="field"><label>Email</label><input id="email" name="email"></div>
+                        <div class="field"><label>Footer Company Text</label><input id="footerCompany"
+                                name="footerCompany"></div>
+                        <div class="field"><label>Footer Name</label><input id="footerName" name="footerName"></div>
+                        <div class="field"><label>Footer Role</label><input id="footerRole" name="footerRole"></div>
+                        <div class="field"><label>Logo Image</label><input id="logoFile" type="file" accept="image/*">
+                        </div>
+                        <div class="field"><label>Signature Image</label><input id="signatureFile" type="file"
+                                accept="image/*"></div>
+                    </div>
+                    <div class="settings-preview">
+                        <div class="imgbox">
+                            <p class="small">Current logo</p><img id="logoPreview" src="assets/logo.jpg">
+                        </div>
+                        <div class="imgbox">
+                            <p class="small">Current signature</p><img id="signaturePreview" src="assets/signature.jpg">
+                        </div>
+                    </div>
+                    <div class="page-actions"><button class="btn" type="submit">Save Settings</button></div>
+                    <div id="settingsMsg" class="success"></div>
+                </form>
+            </div>
+        </main>
+    </div>
+    <script src="js/app.js"></script>
+    <script>initShell('settings', 'Settings'); initSettings();</script>
+</body>
+
+</html>

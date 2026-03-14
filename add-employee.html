@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Employee</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="app-shell">
+        <div id="sidebarMount"></div>
+        <main class="main">
+            <div class="topbar">
+                <div style="display:flex;gap:12px;align-items:center"><button id="mobileToggle"
+                        class="mobile-toggle">☰</button>
+                    <h1 id="pageTitle"></h1>
+                </div>
+            </div>
+            <div class="card">
+                <h3 class="form-section-title" id="formMode">Add Employee</h3>
+                <form id="employeeForm">
+                    <div class="form-grid three">
+                        <div class="field"><label>Employee ID</label><input id="employeeId" name="employeeId" required>
+                        </div>
+                        <div class="field"><label>Employee Name</label><input id="employeeName" name="employeeName"
+                                required></div>
+                        <div class="field"><label>Designation</label><input id="designation" name="designation"></div>
+                        <div class="field"><label>Department</label><input id="department" name="department"></div>
+                        <div class="field"><label>Mail ID</label><input id="mailId" name="mailId" type="email"></div>
+                        <div class="field"><label>PF No.</label><input id="pfNo" name="pfNo"></div>
+                        <div class="field"><label>PAN</label><input id="pan" name="pan"></div>
+                        <div class="field"><label>ESI No.</label><input id="esiNo" name="esiNo"></div>
+                        <div class="field"><label>DOJ</label><input id="doj" name="doj" type="text"
+                                placeholder="2/1/2025"></div>
+                        <div class="field"><label>Bank Name</label><input id="bankName" name="bankName"></div>
+                        <div class="field"><label>Bank Account</label><input id="bankAccount" name="bankAccount"></div>
+                    </div>
+                    <div class="page-actions"><button class="btn" type="submit">Save Employee</button><a
+                            class="btn secondary" href="employee-list.html">Back</a></div>
+                    <div id="employeeMsg" class="success"></div>
+                </form>
+            </div>
+        </main>
+    </div>
+    <script src="js/app.js"></script>
+    <script>initShell('add-employee', 'Add Employee'); initAddEmployee(); initEmployeeEdit();</script>
+</body>
+
+</html>

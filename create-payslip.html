@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Payslip</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="app-shell">
+        <div id="sidebarMount"></div>
+        <main class="main">
+            <div class="topbar">
+                <div style="display:flex;gap:12px;align-items:center"><button id="mobileToggle"
+                        class="mobile-toggle">☰</button>
+                    <h1 id="pageTitle"></h1>
+                </div>
+            </div>
+            <form id="payslipForm" class="grid">
+                <div class="card">
+                    <h3 class="form-section-title">Employee Selection</h3>
+                    <div class="form-grid three">
+                        <div class="field"><label>Select Employee</label><select id="employeeSelect">
+                                <option value="">Select employee</option>
+                            </select></div>
+                        <div class="field"><label>Month</label><input name="month" required placeholder="August"></div>
+                        <div class="field"><label>Year</label><input name="year" required placeholder="2025"></div>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3 class="form-section-title">Employee Details</h3>
+                    <div class="form-grid three">
+                        <div class="field"><label>Name</label><input id="employeeName" name="employeeName"></div>
+                        <div class="field"><label>Employee ID</label><input id="employeeId" name="employeeId"></div>
+                        <div class="field"><label>Designation</label><input id="designation" name="designation"></div>
+                        <div class="field"><label>Department</label><input id="department" name="department"></div>
+                        <div class="field"><label>PF No.</label><input id="pfNo" name="pfNo"></div>
+                        <div class="field"><label>PAN</label><input id="pan" name="pan"></div>
+                        <div class="field"><label>ESI No.</label><input id="esiNo" name="esiNo"></div>
+                        <div class="field"><label>DOJ</label><input id="doj" name="doj"></div>
+                        <div class="field"><label>Bank Name</label><input id="bankName" name="bankName"></div>
+                        <div class="field"><label>Bank Account</label><input id="bankAccount" name="bankAccount"></div>
+                        <div class="field"><label>Mail ID</label><input id="mailId" name="mailId"></div>
+                        <div class="field"><label>Total Working Days</label><input name="totalWorkingDays" value="30">
+                        </div>
+                        <div class="field"><label>Paid Days</label><input name="paidDays" value="30"></div>
+                        <div class="field"><label>LOP Days</label><input name="lopDays" value="0"></div>
+                        <div class="field"><label>Leaves Taken</label><input name="leavesTaken" value="0"></div>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3 class="form-section-title">Earnings & Deductions</h3>
+                    <div class="form-grid three">
+                        <div class="field"><label>Basic Wage</label><input id="basicWage" name="basicWage" type="number"
+                                data-calc="1"></div>
+                        <div class="field"><label>HRA</label><input id="hra" name="hra" type="number" data-calc="1">
+                        </div>
+                        <div class="field"><label>Conveyance</label><input id="conveyance" name="conveyance"
+                                type="number" data-calc="1"></div>
+                        <div class="field"><label>Dearness Allowance</label><input id="dearnessAllowance"
+                                name="dearnessAllowance" type="number" data-calc="1"></div>
+                        <div class="field"><label>Other Allowance</label><input id="otherAllowance"
+                                name="otherAllowance" type="number" data-calc="1"></div>
+                        <div class="field"><label>Gross Wage</label><input id="grossWage" name="grossWage" readonly>
+                        </div>
+                        <div class="field"><label>EPF</label><input id="epf" name="epf" type="number" data-calc="1">
+                        </div>
+                        <div class="field"><label>ESI / Health Insurance</label><input id="esiDeduction"
+                                name="esiDeduction" type="number" data-calc="1"></div>
+                        <div class="field"><label>Professional Tax</label><input id="professionalTax"
+                                name="professionalTax" type="number" data-calc="1"></div>
+                        <div class="field"><label>Loan Recovery</label><input id="loanRecovery" name="loanRecovery"
+                                type="number" data-calc="1"></div>
+                        <div class="field"><label>TDS</label><input id="tds" name="tds" type="number" data-calc="1">
+                        </div>
+                        <div class="field"><label>Total Earnings</label><input id="totalEarnings" name="totalEarnings"
+                                readonly></div>
+                        <div class="field"><label>Total Deductions</label><input id="totalDeductions"
+                                name="totalDeductions" readonly></div>
+                        <div class="field"><label>Net Salary</label><input id="netSalary" name="netSalary" readonly>
+                        </div>
+                        <div class="field"><label>Net pay in words</label><input id="netWords" name="netWords" readonly>
+                        </div>
+                    </div>
+                    <div class="page-actions"><button class="btn accent" type="submit">Preview Payslip</button>
+<button type="button" id="savePayslipDraftBtn" class="btn secondary">Save Payslip</button></div>
+                </div>
+            </form>
+        </main>
+    </div>
+    <script src="js/app.js"></script>
+    <script>initShell('create', 'Create Payslip'); initCreatePayslip();</script>
+</body>
+
+</html>

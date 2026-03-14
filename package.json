@@ -1,0 +1,14 @@
+
+{
+  "name": "priya-ab-asug-bns-db",
+  "version": "1.0.0",
+  "description": "Same design payslip website with database connection",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "sqlite3": "^5.1.7"
+  }
+}
