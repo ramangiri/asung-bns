@@ -362,3 +362,101 @@ th{background:#f3f4f6}
     margin:36px 16px 0;
   }
 }
+
+
+
+/* Mobile payslip alignment fix - keep same PDF/desktop design */
+@media (max-width: 768px){
+  .preview-shell{
+    display:block !important;
+  }
+
+  .preview-panel{
+    width:100% !important;
+    overflow-x:auto !important;
+    -webkit-overflow-scrolling:touch;
+    padding-bottom:10px;
+  }
+
+  .preview-side{
+    width:100% !important;
+    margin-top:16px;
+  }
+
+  .preview-side .card{
+    position:static !important;
+  }
+
+  .payslip,
+  #payslipPrintable{
+    width:794px !important;
+    min-width:794px !important;
+    max-width:none !important;
+    min-height:1123px !important;
+    margin:0 !important;
+    transform:none !important;
+    zoom:1 !important;
+    box-sizing:border-box !important;
+  }
+
+  .payslip-header{
+    display:flex !important;
+    flex-direction:row !important;
+    justify-content:space-between !important;
+    align-items:center !important;
+    gap:16px !important;
+    margin:14px 40px 20px !important;
+    text-align:initial !important;
+  }
+
+  .header-left{
+    max-width:42% !important;
+    flex:1 1 42% !important;
+    text-align:left !important;
+  }
+
+  .header-center{
+    flex:0 0 auto !important;
+    text-align:center !important;
+  }
+
+  .header-right{
+    max-width:28% !important;
+    flex:1 1 28% !important;
+    text-align:right !important;
+  }
+
+  .company-name{
+    font-size:18px !important;
+  }
+
+  .company-address{
+    font-size:13px !important;
+  }
+
+  .payslip-footer{
+    margin:50px 40px 0 !important;
+    text-align:left !important;
+  }
+
+  .footer-sign{
+    height:60px !important;
+    width:auto !important;
+  }
+
+  .page-actions,
+  .row-actions{
+    flex-wrap:wrap;
+  }
+
+  .form-grid,
+  .form-grid.two,
+  .form-grid.three{
+    grid-template-columns:1fr !important;
+  }
+
+  .table-wrap{
+    overflow-x:auto !important;
+    -webkit-overflow-scrolling:touch;
+  }
+}
