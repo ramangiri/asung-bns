@@ -1,66 +1,194 @@
-<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Payslip Preview</title><link rel="stylesheet" href="css/style.css"><script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script></head><body><div class="app-shell"><div id="sidebarMount"></div><main class="main"><div class="topbar"><div style="display:flex;gap:12px;align-items:center"><button id="mobileToggle" class="mobile-toggle">☰</button><h1 id="pageTitle"></h1></div></div>
-<div class="preview-shell">
-  <div class="preview-panel">
-    <div id="payslipPrintable" class="payslip">
-      <div class="pay-top-strip full"><div class="black"></div><div class="teal"></div></div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payslip Preview</title>
 
-      <div class="payslip-header">
-        <div class="header-left">
-          <div class="company-name">ASUNG BNS GLOBAL PRIVATE LIMITED</div>
-          <div class="company-address">No.8, Pillaiyar Kovil Street, Potheri (po)<br>Kattankolathur-603 203</div>
-        </div>
-        <div class="header-center">
-          <img src="assets/logo.jpg" id="logoImg" class="logo" alt="Logo">
-        </div>
-        <div class="header-right">
-          Pay Slip for <span id="payMonthTitle"></span>
+  <link rel="stylesheet" href="css/style.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+
+<body>
+  <div class="app-shell">
+    <div id="sidebarMount"></div>
+
+    <main class="main">
+      <div class="topbar">
+        <div style="display:flex; gap:12px; align-items:center;">
+          <button id="mobileToggle" class="mobile-toggle">☰</button>
+          <h1 id="pageTitle"></h1>
         </div>
       </div>
 
-      <table class="pay-table">
-        <tr><td class="label">Name of the Employee</td><td id="v_employeeName"></td><td class="right-label">PF No.</td><td class="right-value" id="v_pfNo"></td></tr>
-        <tr><td class="label">Employee ID</td><td id="v_employeeId"></td><td class="right-label">PAN</td><td class="right-value" id="v_pan"></td></tr>
-        <tr><td class="label">Designation</td><td id="v_designation"></td><td class="right-label">ESI No.</td><td class="right-value" id="v_esiNo"></td></tr>
-        <tr><td class="label">Department</td><td id="v_department"></td><td class="right-label">Bank Name</td><td class="right-value" id="v_bankName"></td></tr>
-        <tr><td class="label">DOJ</td><td id="v_doj"></td><td class="right-label">Bank A/C No</td><td class="right-value" id="v_bankAccount"></td></tr>
-        <tr><td class="label">Gross Wage</td><td class="value" id="v_grossWage"></td><td class="right-label">Mail ID</td><td class="right-value" id="v_mailId"></td></tr>
-        <tr><td class="label">Total Working Days</td><td class="value" id="v_totalWorkingDays"></td><td class="right-label">Paid Days</td><td class="right-value" id="v_paidDays"></td></tr>
-        <tr><td class="label">LOP days</td><td class="value" id="v_lopDays"></td><td class="right-label">Leaves Taken</td><td class="right-value" id="v_leavesTaken"></td></tr>
-      </table>
+      <div class="preview-shell">
+        <div class="preview-panel">
+          <div id="payslipPrintable" class="payslip">
+            <div class="pay-top-strip full">
+              <div class="black"></div>
+              <div class="teal"></div>
+            </div>
 
-      <table class="pay-salary-table">
-        <tr><th colspan="2">Earnings (Break-up)</th><th colspan="2" class="teal-head">Deductions</th></tr>
-        <tr><td class="label">Basic Wage</td><td class="value" id="v_basicWage"></td><td class="label">EPF</td><td class="value" id="v_epf"></td></tr>
-        <tr><td class="label">HRA</td><td class="value" id="v_hra"></td><td class="label">ESI/Health Insurance</td><td class="value" id="v_esiDeduction"></td></tr>
-        <tr><td class="label">Conveyance Allowances</td><td class="value" id="v_conveyance"></td><td class="label">Professional Tax</td><td class="value" id="v_professionalTax"></td></tr>
-        <tr><td class="label">Dearness Allowance</td><td class="value" id="v_dearnessAllowance"></td><td class="label">Loan Recovery</td><td class="value" id="v_loanRecovery"></td></tr>
-        <tr><td class="label">Other Allowances</td><td class="value" id="v_otherAllowance"></td><td class="label">Tax deducted at source</td><td class="value" id="v_tds"></td></tr>
-        <tr><td class="label strong">Total Earnings</td><td class="value strong" id="v_totalEarnings"></td><td class="label strong">Total Deductions</td><td class="value strong" id="v_totalDeductions"></td></tr>
-      </table>
+            <div class="payslip-header">
+              <div class="header-left">
+                <div class="company-name">ASUNG BNS GLOBAL PRIVATE LIMITED</div>
+                <div class="company-address">
+                  No.8, Pillaiyar Kovil Street, Potheri (po)<br>
+                  Kattankolathur-603 203
+                </div>
+              </div>
 
-      <table class="pay-net-table"><tr><td class="net-highlight">Net Salary</td><td class="net-highlight" id="v_netSalary"></td></tr></table>
-      <table class="pay-words-table"><tr><td>Net pay (in words) : <span id="v_netWords"></span></td></tr></table>
+              <div class="header-center">
+                <img src="assets/logo.jpg" id="logoImg" class="logo" alt="Logo">
+              </div>
 
-      <div class="payslip-footer">
-        <p class="footer-company">For ASUNG BNS GLOBAL PVT. LTD.</p>
-        <img src="assets/signature.jpg" id="signImg" class="footer-sign" alt="Signature">
-        <p class="footer-name">Padma Priya</p>
-        <p class="footer-role">Director</p>
+              <div class="header-right">
+                Pay Slip for <span id="payMonthTitle"></span>
+              </div>
+            </div>
+
+            <table class="pay-table">
+              <tr>
+                <td class="label">Name of the Employee</td>
+                <td id="v_employeeName"></td>
+                <td class="right-label">PF No.</td>
+                <td class="right-value" id="v_pfNo"></td>
+              </tr>
+              <tr>
+                <td class="label">Employee ID</td>
+                <td id="v_employeeId"></td>
+                <td class="right-label">PAN</td>
+                <td class="right-value" id="v_pan"></td>
+              </tr>
+              <tr>
+                <td class="label">Designation</td>
+                <td id="v_designation"></td>
+                <td class="right-label">ESI No.</td>
+                <td class="right-value" id="v_esiNo"></td>
+              </tr>
+              <tr>
+                <td class="label">Department</td>
+                <td id="v_department"></td>
+                <td class="right-label">Bank Name</td>
+                <td class="right-value" id="v_bankName"></td>
+              </tr>
+              <tr>
+                <td class="label">DOJ</td>
+                <td id="v_doj"></td>
+                <td class="right-label">Bank A/C No</td>
+                <td class="right-value" id="v_bankAccount"></td>
+              </tr>
+              <tr>
+                <td class="label">Gross Wage</td>
+                <td class="value" id="v_grossWage"></td>
+                <td class="right-label">Mail ID</td>
+                <td class="right-value" id="v_mailId"></td>
+              </tr>
+              <tr>
+                <td class="label">Total Working Days</td>
+                <td class="value" id="v_totalWorkingDays"></td>
+                <td class="right-label">Paid Days</td>
+                <td class="right-value" id="v_paidDays"></td>
+              </tr>
+              <tr>
+                <td class="label">LOP Days</td>
+                <td class="value" id="v_lopDays"></td>
+                <td class="right-label">Leaves Taken</td>
+                <td class="right-value" id="v_leavesTaken"></td>
+              </tr>
+            </table>
+
+            <table class="pay-salary-table">
+              <tr>
+                <th colspan="2">Earnings (Break-up)</th>
+                <th colspan="2" class="teal-head">Deductions</th>
+              </tr>
+              <tr>
+                <td class="label">Basic Wage</td>
+                <td class="value" id="v_basicWage"></td>
+                <td class="label">EPF</td>
+                <td class="value" id="v_epf"></td>
+              </tr>
+              <tr>
+                <td class="label">HRA</td>
+                <td class="value" id="v_hra"></td>
+                <td class="label">ESI/Health Insurance</td>
+                <td class="value" id="v_esiDeduction"></td>
+              </tr>
+              <tr>
+                <td class="label">Conveyance Allowances</td>
+                <td class="value" id="v_conveyance"></td>
+                <td class="label">Professional Tax</td>
+                <td class="value" id="v_professionalTax"></td>
+              </tr>
+              <tr>
+                <td class="label">Dearness Allowance</td>
+                <td class="value" id="v_dearnessAllowance"></td>
+                <td class="label">Loan Recovery</td>
+                <td class="value" id="v_loanRecovery"></td>
+              </tr>
+              <tr>
+                <td class="label">Other Allowances</td>
+                <td class="value" id="v_otherAllowance"></td>
+                <td class="label">Tax Deducted at Source</td>
+                <td class="value" id="v_tds"></td>
+              </tr>
+              <tr>
+                <td class="label strong">Total Earnings</td>
+                <td class="value strong" id="v_totalEarnings"></td>
+                <td class="label strong">Total Deductions</td>
+                <td class="value strong" id="v_totalDeductions"></td>
+              </tr>
+            </table>
+
+            <table class="pay-net-table">
+              <tr>
+                <td class="net-highlight">Net Salary</td>
+                <td class="net-highlight" id="v_netSalary"></td>
+              </tr>
+            </table>
+
+            <table class="pay-words-table">
+              <tr>
+                <td>
+                  Net pay (in words) :
+                  <span id="v_netWords"></span>
+                </td>
+              </tr>
+            </table>
+
+            <div class="payslip-footer">
+              <p class="footer-company">For ASUNG BNS GLOBAL PVT. LTD.</p>
+              <img src="assets/signature.jpg" id="signImg" class="footer-sign" alt="Signature">
+              <p class="footer-name">Padma Priya</p>
+              <p class="footer-role">Director</p>
+            </div>
+          </div>
+        </div>
+
+        <aside class="preview-side">
+          <div class="card">
+            <h3 class="form-section-title">Actions</h3>
+
+            <div class="page-actions">
+              <button id="savePayslipBtn" class="btn full">Save History</button>
+              <button id="downloadPdfBtn" class="btn full accent">Download PDF</button>
+              <a href="create-payslip.html" class="btn full secondary">Back</a>
+            </div>
+
+            <div id="previewMsg" class="success"></div>
+          </div>
+        </aside>
       </div>
-    </div>
+    </main>
   </div>
 
-  <aside class="preview-side">
-    <div class="card">
-      <h3 class="form-section-title">Actions</h3>
-      <div class="page-actions">
-        <button id="savePayslipBtn" class="btn full">Save History</button>
-        <button id="downloadPdfBtn" class="btn full accent">Download PDF</button>
-        
-        <a href="create-payslip.html" class="btn full secondary">Back</a>
-      </div>
-      <div id="previewMsg" class="success"></div>
-    </div>
-  </aside>
-</div></main>
-</div><script src="js/app.js"></script><script>initShell('create','Payslip Preview');initPreview();</script></body></html>
+  <script src="js/app.js"></script>
+  <script>
+    initShell('create', 'Payslip Preview');
+    initPreview();
+  </script>
+</body>
+</html>
