@@ -1,6 +1,6 @@
 
-const ADMIN_EMAIL = 'admin@company.com';
-const ADMIN_PASSWORD = 'admin123';
+const ADMIN_EMAIL = 'padmapriya@asungbns.com';
+const ADMIN_PASSWORD = 'mayapriya@123';
 const COMPANY_DEFAULTS = {
   companyName: 'ASUNG BNS GLOBAL PRIVATE LIMITED',
   address1: 'No.8, Pillaiyar Kovil Street, Potheri (po)',
