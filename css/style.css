@@ -460,3 +460,140 @@ th{background:#f3f4f6}
     -webkit-overflow-scrolling:touch;
   }
 }
+
+
+
+
+/* ===== Premium style for all screens except payslip preview ===== */
+.modern-ui{
+  background:
+    radial-gradient(circle at top left, rgba(19,184,214,0.10), transparent 24%),
+    radial-gradient(circle at bottom right, rgba(8,19,47,0.06), transparent 26%),
+    linear-gradient(180deg,#f4f8fb 0%, #eef4f8 100%);
+}
+.modern-ui .main{padding:24px;}
+.modern-ui .topbar{margin-bottom:20px;}
+.modern-ui .topbar h1{font-size:28px;color:#08132f;letter-spacing:.2px;}
+.modern-ui .card{
+  background:rgba(255,255,255,0.96);
+  border:1px solid rgba(19,184,214,0.08);
+  border-radius:22px;
+  box-shadow:0 12px 30px rgba(15,23,42,0.06);
+  padding:22px;
+}
+.modern-ui .form-section-title{color:#08132f;font-weight:800;margin-bottom:14px;}
+.modern-ui .field label{color:#0f172a;font-weight:700;}
+.modern-ui .field input,
+.modern-ui .field select,
+.modern-ui .field textarea{
+  background:#fbfdff;border:1px solid #d7e2e8;border-radius:14px;padding:12px 14px;transition:.25s ease;
+}
+.modern-ui .field input:focus,
+.modern-ui .field select:focus,
+.modern-ui .field textarea:focus{
+  border-color:#13b8d6;box-shadow:0 0 0 4px rgba(19,184,214,0.12);outline:none;background:#fff;
+}
+.modern-ui .btn{
+  border-radius:14px;padding:12px 18px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;transition:.25s ease;min-width:140px;
+}
+.modern-ui .btn:hover{transform:translateY(-1px);}
+.modern-ui .btn.full{width:auto !important;}
+.modern-ui .sidebar-bottom .btn.full{width:100% !important;min-width:unset;}
+.modern-ui .top-actions,
+.modern-ui .row-actions,
+.modern-ui .page-actions,
+.modern-ui .dashboard-actions{
+  display:flex;gap:10px;flex-wrap:wrap;align-items:center;
+}
+.modern-ui .toolbar{gap:14px;}
+.modern-ui .toolbar .field{min-width:220px;}
+.modern-ui table{border-collapse:separate;border-spacing:0;overflow:hidden;border-radius:18px;}
+.modern-ui table th{background:#f2fbfd;color:#08132f;font-weight:800;}
+.modern-ui table th,.modern-ui table td{border:1px solid #e4edf3;padding:12px 10px;}
+.modern-ui table tr:hover td{background:#fbfdff;}
+.modern-ui .grid.cards{gap:18px;}
+.modern-ui .stat{position:relative;overflow:hidden;}
+.modern-ui .stat::before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:linear-gradient(180deg,#13b8d6,#08132f);}
+.modern-ui .stat .label{color:#667085;font-size:14px;}
+.modern-ui .stat .value{color:#08132f;font-size:30px;}
+.modern-ui .note,.modern-ui .small{color:#667085;}
+.modern-ui .success{color:#0f8a42;font-weight:600;}
+.modern-ui .error{color:#d92d20;font-weight:600;}
+.modern-ui .page-actions .btn,
+.modern-ui .top-actions .btn,
+.modern-ui .row-actions .btn{width:auto !important;}
+
+/* Better button sizing */
+.btn.dark{
+  background:linear-gradient(135deg,#08132f,#0f234d);
+  color:#fff;
+  box-shadow:0 12px 24px rgba(8,19,47,0.18);
+}
+.btn.dark:hover{transform:translateY(-1px);}
+
+/* Material-like date picker fields */
+.field input[type="date"],
+.field input[type="month"],
+.field input.material-date,
+.field input.material-month{
+  height:52px;
+  border-radius:14px;
+  border:1px solid #d7e2e8;
+  background:#f8fbfd;
+  padding:0 14px;
+  box-sizing:border-box;
+  transition:.25s ease;
+}
+.field input[type="date"]:focus,
+.field input[type="month"]:focus,
+.field input.material-date:focus,
+.field input.material-month:focus{
+  border-color:#13b8d6;
+  background:#ffffff;
+  box-shadow:0 0 0 4px rgba(19,184,214,0.12);
+  outline:none;
+}
+.flatpickr-calendar{
+  border:none !important;
+  box-shadow:0 18px 40px rgba(15,23,42,0.18) !important;
+  border-radius:16px !important;
+}
+.flatpickr-months{
+  background:#13b8d6 !important;
+  border-radius:16px 16px 0 0 !important;
+}
+.flatpickr-current-month .flatpickr-monthDropdown-months,
+.flatpickr-current-month input.cur-year,
+.flatpickr-months .flatpickr-prev-month svg,
+.flatpickr-months .flatpickr-next-month svg{
+  color:#fff !important;
+  fill:#fff !important;
+}
+span.flatpickr-weekday{color:#08132f !important;font-weight:700;}
+.flatpickr-day.selected,
+.flatpickr-day.startRange,
+.flatpickr-day.endRange{
+  background:#13b8d6 !important;
+  border-color:#13b8d6 !important;
+}
+@media (max-width:900px){
+  .modern-ui .main{padding:14px;}
+  .modern-ui .btn{min-width:unset;}
+}
+@media (max-width:768px){
+  .modern-ui .card{padding:18px;border-radius:18px;}
+  .modern-ui .topbar h1{font-size:24px;}
+  .modern-ui .grid.cards{grid-template-columns:1fr !important;}
+  .modern-ui .layout-2{grid-template-columns:1fr !important;}
+  .modern-ui .toolbar{flex-direction:column;align-items:stretch;}
+  .modern-ui .toolbar .field{min-width:unset;width:100%;}
+  .modern-ui .page-actions,
+  .modern-ui .top-actions,
+  .modern-ui .row-actions,
+  .modern-ui .dashboard-actions{width:100%;}
+  .modern-ui .page-actions .btn,
+  .modern-ui .top-actions .btn,
+  .modern-ui .row-actions .btn,
+  .modern-ui .dashboard-actions .btn,
+  .modern-ui .btn.full{width:100% !important;}
+}
