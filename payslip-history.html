@@ -6,9 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Payslip History</title>
     <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/themes/material_blue.css">
 </head>
 
-<body>
+<body class="modern-ui">
     <div class="app-shell">
         <div id="sidebarMount"></div>
         <main class="main">
@@ -22,7 +24,7 @@
                 <div class="toolbar">
                     <div class="field"><label>Search Employee</label><input id="searchName" placeholder="Employee name">
                     </div>
-                    <div class="field"><label>Search Month</label><input id="searchMonth" placeholder="August 2025">
+                    <div class="field"><label>Search Month</label><input id="searchMonth" class="material-month" placeholder="Select month">
                     </div>
                 </div>
                 <div class="table-wrap">
@@ -45,6 +47,13 @@
     </div>
     <script src="js/app.js"></script>
     <script>initShell('history', 'Payslip History'); initHistory();</script>
+
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script>
+if(window.flatpickr){
+  flatpickr("#searchMonth",{dateFormat:"F Y",disableMobile:false});
+}
+</script>
 </body>
 
 </html>
