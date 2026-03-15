@@ -57,6 +57,13 @@ function collectPayslipFormData(){
 
   data.employeeName = data.employeeName || data.name || '';
   data.employeeId = data.employeeId || '';
+  if((!data.month || !data.year) && data.monthPicker){
+    const parts = String(data.monthPicker).split(' ');
+    if(parts.length >= 2){
+      data.month = parts[0];
+      data.year = parts[1];
+    }
+  }
   data.monthYear = data.monthYear || (((data.month || '') + ' ' + (data.year || '')).trim());
   data.id = data.id || ('ps_' + Date.now());
   data.createdAt = data.createdAt || new Date().toLocaleString();
